@@ -755,7 +755,7 @@
 # li = [2, 4, 6, 8, 9]
 # for i in li:
 #     try:
-#         assert i % 2 == 0       # throws AssertionError if false
+#         assert i % 2 == 0       # throws AssertionError if False
 #     except AssertionError:
 #         print("There are ODD NUMBERS THERE. THAT'S ODD LEL")
 #         pass
@@ -1131,16 +1131,437 @@
 
 # import re
 
-s = ["aba", "aa", "ad", "vcd", "aba"]
-# leng = max(len(x) for x in s)
-leng = len(max(s, key=len))
-# a = ' '.join(s)
-# match = re.findall(r'\b\w{%s}\b' % leng, a)
+# s = ["aba", "aa", "ad", "vcd", "aba"]
+# # leng = max(len(x) for x in s)
+# leng = len(max(s, key=len))
+# # a = ' '.join(s)
+# # match = re.findall(r'\b\w{%s}\b' % leng, a)
+# #
+# # print(match)
 #
+# match = [x for x in s if len(x) == leng]
 # print(match)
+#
+# match = list(filter(lambda x: len(x) == max([len(i) for i in s]), s))
+# print(match)
+#
+# s1 = "aabcc"
+# s2 = "adcaa"
+# a1, a2 = list(s2), list(s2)
+#
+#
+# def loop(var1, var2):
+#     for x in var1:
+#         if x in var2:
+#             var2.remove(x)
+#     return var2
+#
+#
+# loop(s1, a1)
+# loop(a1, a2)
+# print(len(a2))
 
-match = [x for x in s if len(x) == leng]
-print(match)
+# com = [min(s1.count(i), s2.count(i)) for i in set(s1)]
+# print([(s1.count(i)) for i in set(s1)])
+# print([(s2.count(i)) for i in set(s1)])
 
-match = list(filter(lambda x: len(x) == max([len(i) for i in s]), s))
-print(match)
+# print(len([x for x in s2 if x in set(s1).intersection(s2)]))
+
+# n = 1230
+# z = 238017
+#
+# a = [int(x) for x in str(z)]
+#
+# print(a)
+#
+# print(sum(a[:len(a)//2]))
+# print(sum(a[len(a)//2:]))
+
+
+# a = [-1, 150, 190, 170, -1, -1, 160, 180]
+
+
+# def swap(lis, x, y):
+#     if lis[x] == -1:
+#         swap(lis, x + 1, y)
+#     elif lis[x] < lis[y]:
+#         lis[x], lis[y] = lis[y], lis[x]
+#     else:
+#         pass
+#
+#
+# def sortByHeight(lista):
+#     for i in range(len(lista)):
+#         for j in range(1, len(lista)):
+#             if lista[j] < lista[j - 1]:
+#                 swap(lista, j, j - 1)
+#     return lista
+
+# t = sorted(i for i in a if i > 0)
+#
+# for i, n in enumerate(a):
+#     if n == -1:
+#         t.insert(i, n)
+#
+# print(t)
+
+# import re
+# a = "a(hc)uj"
+# b = "a(bcdefghijkl(mno)p)q"
+# c = "Gdzie sa kurwa zawiasy"
+# d = "abc(cba)ab(bac)c"
+# e = "The ((quick (brown) (fox) jumps over the lazy) dog)"
+# f = [a, b, c, d, e]
+#
+# def findshits(s):
+#     if s:
+#         li = re.findall("(?=(\([\w ]*\)))", s)
+#         if li:
+#             for x in li:
+#                 z = s.replace(x, x[-2:0:-1])
+#             return findshits(z)
+#         else:
+#             return s
+#
+#
+# for x in f:
+#     print(findshits(x))
+
+# a = [50, 60, 60, 45, 70]
+#
+#
+# def alternatingSums(lista):
+#     a = 0
+#     b = 0
+#     for num, val in enumerate(lista):
+#         if not num % 2:
+#             a += val
+#         else:
+#             b += val
+#
+#     return [a, b]
+#
+# print(alternatingSums(a))
+
+# pic = ["aa",
+#        "**",
+#        "zz"]
+#
+#
+# def addBorder(picture):
+#     leng = len(picture[0])
+#     picture = ['*'*leng] + picture + ['*'*leng]
+#     for num, x in enumerate(picture):
+#         picture[num] = '*' + x + '*'
+#     return picture
+#
+#
+# def addBorder(picture):
+#     leng = len(picture[0]) + 2
+#     return ['*'*leng] + [x.center(leng, '*') for x in picture] + ['*'*leng]
+#
+#
+# print(addBorder(pic))
+
+# l1 = [1, 2, 3]
+# l2 = [2, 1, 3]
+#
+#
+# def areSimilar(a, b):
+#     misInd = []
+#     if a == b:
+#         return True
+#
+#     for x in range(len(l1)):
+#         if a[x] != b[x]:
+#             misInd.append(x)
+#
+#     if len(misInd) > 2 or len(misInd) == 1:
+#         return False
+#     else:
+#         a[misInd[0]], a[misInd[1]] = a[misInd[1]], a[misInd[0]]
+#         if a == b:
+#             return True
+#         else:
+#             return False
+#
+#
+# def areSimilar(a, b):
+#     return sorted(a) == sorted(b) and sum([a != b for a, b in zip(a, b)]) <= 2
+#
+#
+# print(areSimilar(l1, l2))
+
+# a = "abbcabb"
+#
+# def palindromeRearranging(inputString):
+#     numbers = []
+#     odd = 0
+#     for x in set(inputString):
+#         numbers.append(inputString.count(x))
+#         if inputString.count(x) % 2:
+#             odd += 1
+#
+#     if odd > 1:
+#         return False
+#     return True
+#
+#     return sum([inputString.count(i)%2 for i in set(inputString)]) <= 1
+#
+#
+# print(palindromeRearranging(a))
+
+# test = [2, 4, 1, 0]
+#
+#
+# def arrayMaximalAdjacentDifference(inputArray):
+#     return max([abs(inputArray[i] - inputArray[i - 1]) for i in range(1, len(inputArray))])
+#
+#
+# print(arrayMaximalAdjacentDifference(test))
+# TODO WHAT THE GFGKCK
+# def firstNotRepeatingCharacter(s):
+#     dict = []
+#     for x in s:
+#         if x not in dict:
+#             dict.append((x, s.count(x)))
+#     result = [t[0] for t in dict if t[1] == 1]
+#     if result:
+#         return result[0]
+#     return '_'
+#
+#
+# print(firstNotRepeatingCharacter("abacabaabacaba"))
+
+
+# import re
+# string = "172.16.254.1a"
+
+
+# def isIPv4Address(inputString):
+#     try:
+#         numbers = [int(x) for x in inputString.split('.')]
+#     except ValueError:
+#         return False
+#     if len(numbers) != 4 or max(numbers) > 255 or min(numbers) < 0:
+#         return False
+#     return True
+
+#
+# def isIPv4Address(inputString):
+#     addressNums = inputString.split('.')
+#     if len(addressNums) != 4:
+#         return False
+#     for x in addressNums:
+#         if not x.isdigit() or int(x) < 0 or int(x) > 255:
+#             return False
+#     return True
+#
+#
+# print(isIPv4Address(string))
+#
+# array1 = [5, 3, 6, 7, 9]
+# array2 = [2, 3]
+# array3 = [1, 4, 10, 6, 2]
+
+
+# def avoidObstacles(inputArray):
+#     divisors = set(range(1,41))
+#     discard = set()
+#     for i in range(1, 41):
+#         for x in inputArray:
+#             if x % i == 0:
+#                 discard.add(i)
+#     for x in discard:
+#         divisors.discard(x)
+#     return min(divisors)
+
+
+# def avoidObstacles(inputArray):
+#     i = 2
+#     while True:
+#         if all(x % i != 0 for x in inputArray):
+#             return i
+#         i += 1
+#
+# print(avoidObstacles(array1))
+# print(avoidObstacles(array2))
+# print(avoidObstacles(array3))
+
+# image = [[36, 0, 18, 9],
+#          [27, 54, 9, 0],
+#          [81, 63, 72, 45]]
+
+
+# def boxBlur(image):
+#     line = []
+#     blurred = []
+#     suma = 0
+#     for i in range(1, len(image) - 1):
+#         for j in range(1, len(image[0]) - 1):
+#             for k in range(-1, 2):
+#                 for l in range(-1, 2):
+#                     suma += image[i + k][j + l]
+#             suma //= 9
+#             line.append(suma)
+#             suma = 0
+#         blurred.append(line)
+#         line = []
+#
+#     return blurred
+#
+#
+# def boxBlur(m):
+#     r = len(m)
+#     c = len(m[0])
+#     ans = []
+#     for i in range(1,r-1):
+#         row=[]
+#         for j in range(1,c-1):
+#             row.append(sum([m[i+k][j+l] for k in [-1,0,1] for l in [-1,0,1]])//9)
+#         ans.append(row)
+#     return ans
+#
+#
+# def boxBlur(image):
+#     # print ([[x[i:i+3] for x in image[j:j+3] for i in range(len(image[j])-2)] for j in range(len(image)-2)])
+#
+#     return [[int(sum(sum(x[i:i + 3]) for x in image[j:j + 3]) / 9) for i in range(len(image[j]) - 2)] for j in
+#             range(len(image) - 2)]
+#
+#
+# print(boxBlur(image))
+
+# matrix = [[True, False, False, True],
+#           [False, False, True, False],
+#           [True, True, False, True]]
+#
+#
+# def minesweeper(matrix):
+#     matcopy = [[0]*(len(matrix[0])) for _ in range(len(matrix))]
+#     for i in range(len(matrix)):
+#         for j in range(len(matrix[0])):
+#             if matrix[i][j]:
+#                 add_to_neighbours(i, j, matcopy)
+#
+#     return matcopy
+#
+#
+# def add_to_neighbours(i, j, matcopy):
+#     for k in range(-1, 2):
+#         for li in range(-1, 2):
+#             if not k == li == 0:
+#                 try:
+#                     add_to_cell(i, j, k, li, matcopy)
+#                 except IndexError:
+#                     print(f"Index error for copy[{i+k}][{j+li}] from from matrix[{i}][{j}]")
+#                     pass
+#
+#
+# def add_to_cell(i, j, k, li, matcopy):
+#     if i + k >= 0 and j + li >= 0:
+#         matcopy[i + k][j + li] += 1
+#         print(f'Adding to copy[{i+k}][{j+li}] from matrix[{i}][{j}]')
+#
+#
+# print(minesweeper(matrix))
+
+# import timeit
+#
+# inputArray = [1, 2, 3, 4, 5]
+# elemToReplace = 3
+# substitutionElem = 0
+#
+#
+# def arrayReplace(inputArray, elemToReplace, substitutionElem):
+#     indices = [num for num, x in enumerate(inputArray) if x == elemToReplace]
+#     for x in indices:
+#         inputArray.pop(x)
+#         inputArray.insert(x, substitutionElem)
+#
+#     return inputArray
+#
+#
+# def arrayReplace(inputArray, elemToReplace, substitutionElem):
+#     return [substitutionElem if x == elemToReplace else x for x in inputArray]
+#
+#
+# print(arrayReplace(inputArray, elemToReplace, substitutionElem))
+#
+# if __name__ == '__main__':
+#     print(timeit.timeit("arrayReplace([1, 2, 3, 4, 5], 3, 0)", setup="from __main__ import arrayReplace", number=10))
+
+
+# n = 2244638800
+#
+# def evenDigitsOnly(n):
+#     s = str(n)
+#     for x in s:
+#         if int(x) % 2:
+#             return False
+#     return True\
+#
+#
+# def evenDigitsOnly(n):
+#     return all([int(i) % 2 == 0 for i in str(n)])
+#
+#
+# print(evenDigitsOnly(n))
+
+
+# n = "qq-q"
+#
+# import re
+#
+#
+# def variableName(name):
+#     if re.search(r'\W', name) or name[0].isdigit():
+#         return False
+#     return True
+#
+#
+# def variableName(name):
+#     return name.isidentifier()
+#
+#
+# print(variableName(n))
+
+
+# def alphabeticShift(inputString):
+#     temp = ''
+#     s = 'abcdefghijklmnopqrstuvwxyz'
+#     for x in inputString:
+#         temp = temp + s[(s.index(x)+1) % 26]
+#     return temp
+#
+#
+# inp = 'crazy'
+#
+# print(alphabeticShift(inp))
+
+# s = "ABCDEFGH"
+#
+# for x in s:
+#     print(ord(x))
+#
+#
+# def chessBoardCellColor(cell1, cell2):
+#     return (ord(cell1[0]) + int(cell1[1])) % 2 == (ord(cell2[0]) + int(cell2[1])) % 2
+
+
+# a = [2, 4, 7]
+#
+#
+# def absoluteValuesSumMinimization(a):
+#     min = -1
+#     for x in a:
+#         suma = sum([abs(y - x) for y in a])
+#         if suma < min or min == -1:
+#             min = suma
+#             num = x
+#
+#     return num
+#
+#
+# print(absoluteValuesSumMinimization(a))
+
