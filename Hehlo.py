@@ -1565,3 +1565,51 @@
 #
 # print(absoluteValuesSumMinimization(a))
 
+
+# z = ["abc",
+#      "abx",
+#      "axx",
+#      "abx",
+#      "abc"]
+
+# z = []
+
+z = ["abc",
+     "bef",
+     "bcc",
+     "bec",
+     "bbc",
+     "bdc"]
+
+
+def stringsRearrangement(inputArray):
+    for i in range(len(inputArray)):
+        copy = inputArray.copy()
+        temp = inputArray[i]
+        seq = [copy.pop(i)]
+        print('='*40 + '\n' + f'New sequence, starts with {temp}' + '\n' + '='*40)
+        print(f'copy array: {copy}')
+        print(f'seq array: {seq}')
+        for l in range(len(copy[:])):
+            for y in copy[:]:
+                print(f'Checking {y}')
+                dis = 0
+                for j in range(len(temp)):
+                    if temp[j] != y[j]:
+                        dis += 1
+                if dis == 1:
+                    temp = y
+                    print(f'Adding {y}')
+                    seq.append(y)
+                    copy.remove(y)
+                else:
+                    print(f'Broke on {y}')
+                    continue
+                print(f'copy array: {copy}')
+                print(f'seq array: {seq}')
+        if sorted(inputArray).__eq__(sorted(seq)):
+            return True
+    return False
+
+
+print(stringsRearrangement(z))
