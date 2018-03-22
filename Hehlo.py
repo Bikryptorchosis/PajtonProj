@@ -1572,44 +1572,79 @@
 #      "abx",
 #      "abc"]
 
-# z = []
+# z = ["abc",
+#      "xbc",
+#      "xxc",
+#      "xbc",
+#      "aby",
+#      "ayy",
+#      "aby"]
 
-z = ["abc",
-     "bef",
-     "bcc",
-     "bec",
-     "bbc",
-     "bdc"]
+# z = ["abc",
+#      "bef",
+#      "bcc",
+#      "bec",
+#      "bbc",
+#      "bdc"]
+
+# TODO MAKE THIS ACTUALLY VALID
+
+# def stringsRearrangement(inputArray):
+#     for i in range(len(inputArray)):
+#         copy = inputArray.copy()
+#         temp = inputArray[i]
+#         seq = [copy.pop(i)]
+#         print('=' * 40 + '\n' + f'New sequence, starts with {temp}' + '\n' + '=' * 40)
+#         print(f'copy array: {copy}')
+#         print(f'seq array: {seq}')
+#         for l in range(len(copy[:])):
+#             for y in copy[::-1]:
+#                 print(f'Checking {y}')
+#                 dis = 0
+#                 for j in range(len(temp)):
+#                     if temp[j] != y[j]:
+#                         dis += 1
+#                 if dis == 1:
+#                     temp = y
+#                     print(f'Adding {y}')
+#                     seq.append(y)
+#                     copy.remove(y)
+#                 else:
+#                     print(f'Broke on {y}')
+#                     continue
+#                 print(f'copy array: {copy}')
+#                 print(f'seq array: {seq}')
+#         if sorted(inputArray).__eq__(sorted(seq)):
+#             return True
+#     return False
+#
+#
+# print(stringsRearrangement(z))
+
+# import re
+#
+#
+# def firstDigit(inputString):
+#     return re.search('\d+', inputString).group(0)
+#     # m = re.search('\d+', inputString)
+#     # return m.group(0)
+#
+#
+# s = "var_23__Int"
+# print(firstDigit(s))
+
+a = [3, 2, 1, 1]
 
 
-def stringsRearrangement(inputArray):
-    for i in range(len(inputArray)):
-        copy = inputArray.copy()
-        temp = inputArray[i]
-        seq = [copy.pop(i)]
-        print('='*40 + '\n' + f'New sequence, starts with {temp}' + '\n' + '='*40)
-        print(f'copy array: {copy}')
-        print(f'seq array: {seq}')
-        for l in range(len(copy[:])):
-            for y in copy[:]:
-                print(f'Checking {y}')
-                dis = 0
-                for j in range(len(temp)):
-                    if temp[j] != y[j]:
-                        dis += 1
-                if dis == 1:
-                    temp = y
-                    print(f'Adding {y}')
-                    seq.append(y)
-                    copy.remove(y)
-                else:
-                    print(f'Broke on {y}')
-                    continue
-                print(f'copy array: {copy}')
-                print(f'seq array: {seq}')
-        if sorted(inputArray).__eq__(sorted(seq)):
-            return True
-    return False
+def arrayMaxConsecutiveSum(inputArray, k):
+    suma = sum(inputArray[:k])
+    max = sum(inputArray[:k])
+    for i in range(k, len(inputArray)):
+        print(f'Adding {suma} - {inputArray[i-k]} + {inputArray[i]}')
+        suma = suma - inputArray[i-k] + inputArray[i]
+        if suma > max:
+            max = suma
+    return max
 
 
-print(stringsRearrangement(z))
+print(arrayMaxConsecutiveSum(a, 1))
