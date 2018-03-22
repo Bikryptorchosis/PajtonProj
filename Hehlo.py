@@ -1633,18 +1633,69 @@
 # s = "var_23__Int"
 # print(firstDigit(s))
 
-a = [3, 2, 1, 1]
+# a = [3, 2, 1, 1]
+#
+#
+# def arrayMaxConsecutiveSum(inputArray, k):
+#     suma = sum(inputArray[:k])
+#     max = sum(inputArray[:k])
+#     for i in range(k, len(inputArray)):
+#         print(f'Adding {suma} - {inputArray[i-k]} + {inputArray[i]}')
+#         suma = suma - inputArray[i-k] + inputArray[i]
+#         if suma > max:
+#             max = suma
+#     return max
+#
+#
+# print(arrayMaxConsecutiveSum(a, 1))
+
+# import re
+#
+# s = "12abc34"
+#
+#
+# def longestDigitsPrefix(inputString):
+#     return re.match('\d*', inputString).group(0)
+#
+#
+# print(longestDigitsPrefix(s))
+
+# bishop = "a1"
+# pawn = "c3"
+# -96
+#
+# def bishopAndPawn(bishop, pawn):
+#     return abs(ord(bishop[0]) - ord(pawn[0])) == abs(int(bishop[1]) - int(pawn[1]))
+#
+#
+# print(bishopAndPawn(bishop, pawn))
+
+# def electionsWinners(votes, k):
+#     if k == 0:
+#         if sum([1 for x in votes if x == max(votes)]) != 1:
+#             return 0
+#         return 1
+#     return sum([1 for x in votes if x + k > max(votes)])
+
+st = 'aaabbcc'
+
+def lineEncoding(s):
+    temp = ''
+    sum = 0
+    ans = ''
+    for c in s:
+        if c == temp:
+            sum += 1
+        else:
+            if sum > 1:
+                ans += str(sum) + temp
+            else:
+                ans += temp
+            sum = 1
+            temp = c
+    ans += (str(sum) if sum > 1 else '') + temp
+
+    return ans
 
 
-def arrayMaxConsecutiveSum(inputArray, k):
-    suma = sum(inputArray[:k])
-    max = sum(inputArray[:k])
-    for i in range(k, len(inputArray)):
-        print(f'Adding {suma} - {inputArray[i-k]} + {inputArray[i]}')
-        suma = suma - inputArray[i-k] + inputArray[i]
-        if suma > max:
-            max = suma
-    return max
-
-
-print(arrayMaxConsecutiveSum(a, 1))
+print(lineEncoding(st))
