@@ -1677,25 +1677,110 @@
 #         return 1
 #     return sum([1 for x in votes if x + k > max(votes)])
 
-st = 'aaabbcc'
+# st = 'aaabbcc'
+#
+# def lineEncoding(s):
+#     temp = ''
+#     sum = 0
+#     ans = ''
+#     for c in s:
+#         if c == temp:
+#             sum += 1
+#         else:
+#             if sum > 1:
+#                 ans += str(sum) + temp
+#             else:
+#                 ans += temp
+#             sum = 1
+#             temp = c
+#     ans += (str(sum) if sum > 1 else '') + temp
+#
+#     return ans
+#
+#
+# print(lineEncoding(st))
 
-def lineEncoding(s):
-    temp = ''
-    sum = 0
-    ans = ''
-    for c in s:
-        if c == temp:
-            sum += 1
-        else:
-            if sum > 1:
-                ans += str(sum) + temp
-            else:
-                ans += temp
-            sum = 1
-            temp = c
-    ans += (str(sum) if sum > 1 else '') + temp
+# d = 1001
+#
+# def deleteDigit(n):
+#     s = str(n)
+#     return int(max([s[:i] + s[i+1:] for i in range(len(s))]))
+#
+#
+# print(deleteDigit(d))
 
-    return ans
+# matrix = [[1, 2, 1],
+#           [2, 2, 2],
+#           [2, 2, 2],
+#           [1, 2, 3],
+#           [2, 2, 1]]
+#
+#
+#
+# def differentSquares(matrix):
+#     s = set()
+#     for i in range(len(matrix)-1):
+#         for j in range(len(matrix[0])-1):
+#             s.add('{}{}{}{}'.format(matrix[i][j], matrix[i][j+1], matrix[i+1][j], matrix[i+1][j+1]))
+#     return len(s)
+#
+#
+# print(differentSquares(matrix))
+
+# test = 243 # daje odpowiedz 399, 3*9*9 = 243
+# test = 19
+#
+# def digitsProduct(product):
+#     if product == 0:
+#         return 10
+#     if product == 1:
+#         return 1
+#     s = ''
+#     while product > 1:
+#         for i in range(9, 1, -1):
+#             if not product % i:
+#                 s = s + str(i)
+#                 product /= i
+#                 break
+#         else:
+#             return -1
+#     return int(s[::-1])
+#
+# print(digitsProduct(test))
+
+# test = ["dd",
+#         "dd(1)",
+#         "dd(2)",
+#         "dd",
+#         "dd(1)",
+#         "dd(1)(2)",
+#         "dd(1)(1)",
+#         "dd",
+#         "dd(1)"]
+#
+#
+# def change_name(val, i, num):
+#     if val[i] + '({})'.format(num) in val[:i]:
+#         change_name(val, i, num + 1)
+#     else:
+#         val[i] += '({})'.format(num)
+#
+#
+# def fileNaming(names):
+#     for i in range(len(names)):
+#         if names[i] in names[:i]:
+#             print(f'Changing {names[i]}')
+#             change_name(names, i, 1)
+#     return names
+#
+#
+# print(fileNaming(test))
+
+test = "010010000110010101101100011011000110111100100001"
 
 
-print(lineEncoding(st))
+def messageFromBinaryCode(code):
+    return ''.join([chr(int(x, 2)) for x in [code[start:start + 8] for start in range(0, len(code), 8)]])
+
+
+print(messageFromBinaryCode(test))
