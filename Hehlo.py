@@ -1776,11 +1776,64 @@
 #
 # print(fileNaming(test))
 
-test = "010010000110010101101100011011000110111100100001"
+# test = "010010000110010101101100011011000110111100100001"
+#
+#
+# def messageFromBinaryCode(code):
+#     return ''.join([chr(int(x, 2)) for x in [code[start:start + 8] for start in range(0, len(code), 8)]])
+#
+#
+# print(messageFromBinaryCode(test))
 
 
-def messageFromBinaryCode(code):
-    return ''.join([chr(int(x, 2)) for x in [code[start:start + 8] for start in range(0, len(code), 8)]])
+# def spiralNumbers(n):
+#     # print('='*40)
+#     arr = [[0 for x in range(n)] for y in range(n)]
+#     temp, off = 1, 0
+#
+#     while n > 0:
+#         for i in range(0 + off, n - off):
+#             arr[off][i] = temp
+#             temp += 1
+#         if temp >= pow(n, 2):
+#             break
+#         for i in range(1 + off, n - off -1):
+#             arr[i][-1 - off] = temp
+#             temp += 1
+#         for i in range(n - off - 1, off - 1, -1):
+#             arr[-1 - off][i] = temp
+#             temp += 1
+#         if temp == pow(n, 2):
+#             break
+#         for i in range(n - off - 2, off, -1):
+#             arr[i][off] = temp
+#             temp += 1
+#         off += 1
+#     # for x in arr:
+#     #     print(x)
+#     return arr
+#
+#
+# spiralNumbers(1)
+# spiralNumbers(2)
+# spiralNumbers(3)
+# spiralNumbers(4)
+# spiralNumbers(5)
+# spiralNumbers(6)
+
+# print(spiralNumbers(1))
+# print(spiralNumbers(2))
+# print(spiralNumbers(3))
+# print(spiralNumbers(4))
+# print(spiralNumbers(5))
+# print(spiralNumbers(6))
 
 
-print(messageFromBinaryCode(test))
+
+
+
+
+
+
+
+
